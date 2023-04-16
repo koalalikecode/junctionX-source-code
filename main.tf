@@ -137,16 +137,29 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
-# Create ec2 linux instance
-resource "aws_instance" "cloud_server" {
+# Create ec2 linux instance in private subnet 2
+resource "aws_instance" "input_handle_server" {
   ami                         = "ami-063e1495af50e6fd5"
   instance_type               = "m5.xlarge"
-  subnet_id                   = aws_subnet.public_subnet_1.id
+  subnet_id                   = aws_subnet.private_subnet_2.id
   vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
   associate_public_ip_address = true
 
   tags = {
-    Name = "Linux-instance"
+    Name = "Input_handle_server"
+  }
+}
+
+# Create ec2 linux instance in public subnet 1
+resource "aws_instance" "web_server" {
+  ami                         = "ami-063e1495af50e6fd5"
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.public_subnet_2.id
+  vpc_security_group_ids      = [aws_security_group.ec2-sg.id]
+  associate_public_ip_address = true
+
+  tags = {
+    Name = "web_server"
   }
 }
 
