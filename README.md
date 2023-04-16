@@ -28,6 +28,7 @@ CropTech is an IoT-based solution that leverages the power of cloud computing to
 ### System Architecture
 
 ![System Architecture](https://i.postimg.cc/Hxx73xYD/image-20230416093027322.png)
+![System Architecture with CI/CD pipeline](https://i.postimg.cc/bNFcSpg5/341263672-1188418618532926-6198545509316174748-n.png)
 
 ### System Flow
 
